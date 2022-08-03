@@ -45,6 +45,6 @@
     "semantic-release": "semantic-release",
     "prebuild": "rm -rf build",
     "build": "rollup -c",
-    "prepare": "npm build"
+    "prepare": "npm run build"
   }
 }
