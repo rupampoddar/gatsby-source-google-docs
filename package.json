@@ -43,9 +43,8 @@
     "test": "jest --coverage",
     "prepublishOnly": "npm lint && npm test",
     "semantic-release": "semantic-release",
-    "prepare": "husky install",
     "prebuild": "rm -rf build",
     "build": "rollup -c",
-    "prepack": "npm build"
+    "prepare": "npm build"
   }
 }
