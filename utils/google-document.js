@@ -1,8 +1,9 @@
-const json2md = require("json2md")
-const yamljs = require("yamljs")
-const _get = require("lodash/get")
-const _repeat = require("lodash/repeat")
-const _merge = require("lodash/merge")
+import json2md from "json2md"
+import yamljs from "yamljs"
+// import _get from "lodash/get"
+// import _repeat from "lodash/repeat"
+// import _merge from "lodash/merge"
+import {get as _get, repeat as _repeat, merge as _merge} from "lodash-es"
 
 const {isCodeBlocks, isQuote} = require("./google-document-types")
 const {DEFAULT_OPTIONS} = require("./constants")
@@ -10,7 +11,7 @@ const {DEFAULT_OPTIONS} = require("./constants")
 const HORIZONTAL_TAB_CHAR = "\x09"
 const GOOGLE_DOCS_INDENT = 18
 
-class GoogleDocument {
+export class GoogleDocument {
   constructor({document, properties = {}, options = {}, links = {}}) {
     this.document = document
     this.links = links
@@ -218,7 +219,7 @@ class GoogleDocument {
       })
       .join("")
   }
-  
+
   indentText(text, level) {
     return `${_repeat(HORIZONTAL_TAB_CHAR, level)}${text}`
   }
@@ -595,8 +596,4 @@ class GoogleDocument {
 // Add extra converter for footnotes
 json2md.converters.footnote = function (footnote) {
   return `[^${footnote.number}]:${footnote.text}`
-}
-
-module.exports = {
-  GoogleDocument: GoogleDocument,
 }
