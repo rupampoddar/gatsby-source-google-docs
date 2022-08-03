@@ -1,5 +1,5 @@
 // https://gist.github.com/aleclarson/9900ed2a9a3119d865286b218e14d226
-// import dts from 'rollup-plugin-dts'
+import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
 
 const name = require('./package.json').main.replace(/\.js$/, '')
@@ -26,11 +26,11 @@ export default [
       },
     ],
   }),
-  // bundle({
-  //   plugins: [dts()],
-  //   output: {
-  //     file: `${name}.d.ts`,
-  //     format: 'es',
-  //   },
-  // }),
+  bundle({
+    plugins: [dts()],
+    output: {
+      file: `${name}.d.ts`,
+      format: 'es',
+    },
+  }),
 ]

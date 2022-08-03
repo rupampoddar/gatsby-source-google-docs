@@ -2,8 +2,9 @@
   "name": "google-docs-to-markdown",
   "version": "1.0.0",
   "description": "Generates markdown output from Google Docs json input",
-  "main": "dist/gdoc-to-md.js",
-  "module": "dist/gdoc-to-md.mjs",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.mjs",
+  "typings": "dist/bundle.d.ts",
   "dependencies": {
     "json2md": "^1.12.0",
     "lodash-es": "^4.17.21",
@@ -19,6 +20,7 @@
     "@semantic-release/npm": "^9.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@tsconfig/node16": "^1.0.3",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/json2md": "^1.5.1",
     "@types/lodash-es": "^4.17.6",
     "@types/yamljs": "^0.2.31",
@@ -42,7 +44,7 @@
     "test": "jest --coverage",
     "prepublishOnly": "npm lint && npm test",
     "semantic-release": "semantic-release",
-    "prebuild": "rm -rf build",
+    "prebuild": "rm -rf dist",
     "build": "rollup -c",
     "prepare": "npm run build"
   }
