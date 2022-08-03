@@ -44,6 +44,8 @@
     "prepublishOnly": "npm lint && npm test",
     "semantic-release": "semantic-release",
     "prepare": "husky install",
-    "build": "rollup -c"
+    "prebuild": "rm -rf build",
+    "build": "rollup -c",
+    "prepack": "npm build"
   }
 }
